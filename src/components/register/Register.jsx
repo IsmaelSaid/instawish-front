@@ -1,62 +1,90 @@
 import { useState } from "react";
 
+/**
+ * Composant de formulaire d'inscription.
+ * 
+ */
 function Register() {
+    /**
+     * État du nom d'utilisateur.
+     * @type {string}
+     */
     const [username, setUsername] = useState('');
+
+    /**
+     * État de l'adresse e-mail.
+     * @type {string}
+     */
     const [email, setEmail] = useState('');
+
+    /**
+     * État du mot de passe.
+     * @type {string}
+     */
     const [password, setPassword] = useState('');
 
-    // cf https://uploadcare.com/blog/how-to-upload-file-in-react/
-    const [file, setFile] = useState([])
+    /**
+     * État du fichier de la photo de profil.
+     * @type {File[]}
+     * @see https://uploadcare.com/blog/how-to-upload-file-in-react/
+     */
+    const [file, setFile] = useState([]);
 
-
+    /**
+     * Gère la soumission du formulaire.
+     * 
+     * @param {React.FormEvent<HTMLFormElement>} e - L'événement de soumission du formulaire.
+     */
     const handleForm = (e) => {
-        // prévenir la soumission automatique
-        // C'est à ce niveau que il faudra vérifier la saisie de l'utilisateur
-
+        // Prévenir la soumission automatique
         e.preventDefault();
+
+        // Création de FormData avec les données du formulaire
         var formdata = new FormData();
         formdata.append("email", email);
         formdata.append("username", username);
         formdata.append("password", password);
         formdata.append("profilePicture", file);
 
+        // Options de la requête
         var requestOptions = {
             method: 'POST',
             body: formdata,
             redirect: 'follow'
         };
 
+        // Envoi de la requête d'inscription
         fetch("https://symfony-instawish.formaterz.fr/api/register", requestOptions)
             .then(response => console.log(response.text()))
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
-
     }
 
     return (
         <form onSubmit={handleForm} method="post">
-            <p>
-                <label htmlFor="inputText">username:</label>
+            <div>
+                <label htmlFor="inputText">Nom d'utilisateur:</label>
                 <input type="text" name="inputText" id="inputText" onChange={(e) => { setUsername(e.target.value) }} />
-            </p>
+            </div>
 
-            <p>
+            <div>
                 <label htmlFor="inputEmail">Email:</label>
                 <input type="email" name="inputEmail" id="inputEmail" onChange={(e) => { setEmail(e.target.value) }} />
-            </p>
+            </div>
 
-            <p>
-                <label htmlFor="inputPassword">Password:</label>
+            <div>
+                <label htmlFor="inputPassword">Mot de passe:</label>
                 <input type="password" name="inputPassword" id="inputPassword" onChange={(e) => { setPassword(e.target.value) }} />
-            </p>
+            </div>
 
-            <p>
-                <label htmlFor="inputFile">Photo</label>
+            <div>
+                <label htmlFor="inputFile">Photo de profil</label>
                 <input type="file" name="inputFile" id="inputFile" onChange={(e) => { setFile(e.target.files[0]) }} />
-            </p>
+            </div>
 
             <button type="submit">Envoyer</button>
-        </form>)
+        </form>
+    )
 }
 
-export default Register
+export default Register;
