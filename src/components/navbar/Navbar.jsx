@@ -10,6 +10,9 @@ function Navbar() {
                 <ul>
                     <li><Link to={`login`}>login</Link></li>
                 </ul>
+                <ul>
+                    <li><Link to={`addPost`}>Add a post</Link></li>
+                </ul>
             </nav>
             <div><Outlet /></div>
         </div>
