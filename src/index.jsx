@@ -10,6 +10,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ListUsers from './components/user/ListUsers';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path : "addPost",
         element : <AddPost/>
+      },
+      {
+        path : "ListUsers",
+        element : <ListUsers/>
       }
     ]
   },
