@@ -5,7 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import ErrorPage from './components/error/Error';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
-
+import AddPost from './components/post/AddPost';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path : "addPost",
+        element : <AddPost/>
       }
     ]
   },
