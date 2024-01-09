@@ -4,6 +4,8 @@ import './index.css';
 import Navbar from './components/navbar/Navbar';
 import ErrorPage from './components/error/Error';
 import Register from './components/register/Register';
+import Login from './components/login/Login';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
         path: "register",
         element: <Register />,
       },
+      {
+        path: "login",
+        element: <Login />,
+      }
     ]
   },
 ]);
