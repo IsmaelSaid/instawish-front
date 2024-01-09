@@ -7,6 +7,9 @@ function Navbar() {
                 <ul>
                     <li><Link to={`register`}>register</Link></li>
                 </ul>
+                <ul>
+                    <li><Link to={`login`}>login</Link></li>
+                </ul>
             </nav>
             <div><Outlet /></div>
         </div>
