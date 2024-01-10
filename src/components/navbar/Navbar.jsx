@@ -13,6 +13,9 @@ function Navbar() {
                 <ul>
                     <li><Link to={`addPost`}>Add a post</Link></li>
                 </ul>
+                <ul>
+                    <li><Link to={`ListUsers`}>Users</Link></li>
+                </ul>
             </nav>
             <div><Outlet /></div>
         </div>
