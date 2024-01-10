@@ -11,8 +11,8 @@
 | Delete post  | ok
 | Display users  | ok
 | Follow users  | ok
+| View the publications of users I follow    | ok
 | Unfollow users  | ?
-| View the publications of users I follow   | x
 | Like a post   | x
 | Comment a post   | x
 
@@ -30,3 +30,6 @@
 
 ## Display users
 ![displayUsers](public/display-users.png)
+
+## Home
+![home](public/home.png)
