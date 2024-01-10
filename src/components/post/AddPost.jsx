@@ -1,4 +1,8 @@
 import { useState } from "react"
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 function AddPost() {
     /**
@@ -30,7 +34,7 @@ function AddPost() {
         var header = new Headers()
         header.append('Authorization', `Bearer ${localStorage.getItem('token')}`)
         // console.log(`Bearer ${localStorage.getItem('token')}`)
-        
+
         var formdata = new FormData()
         formdata.append('description', description)
         formdata.append('picture', file)
@@ -61,19 +65,27 @@ function AddPost() {
     }
 
     return (
-        <form onSubmit={handleForm}>
-            <div>
-                <label htmlFor="inputDescription">Description</label>
-                <input type="text" name="inputDescription" onChange={(e) => { setDescription(e.target.value) }} />
-            </div>
-
-            <div>
-                <label htmlFor="inputFile">Choisir une image</label>
-                <input type="file" name="inputFile" onChange={(e) => { setFile(e.target.files[0]) }} />
-            </div>
-            {errAddPost ? <p>Une erreur est survenu</p> : null}
-            <button type="submit">Envoyer</button>
-        </form>)
+        <Container style={{ width: 'fit-content' }}>
+            <form onSubmit={handleForm}>
+                <Row className = "mt-4">
+                    <div>
+                        {/* <label htmlFor="inputDescription">Description</label> */}
+                        <Form.Control type="text" name="inputDescription" placeholder="Ajouter une photo" onChange={(e) => { setDescription(e.target.value) }} />
+                    </div>
+                </Row>
+                <Row className = "mt-4">
+                    <div>
+                        {/* <label htmlFor="inputFile">Choisir une image</label> */}
+                        <Form.Control type="file" name="inputFile" onChange={(e) => { setFile(e.target.files[0]) }} />
+                    </div>
+                </Row>
+                {errAddPost ? <p>Une erreur est survenu</p> : null}
+                <div className="text-center mt-4">
+                    <Button variant="primary" type="submit">Poster</Button>
+                </div>
+            </form>
+        </Container>
+    )
 
 
 }
