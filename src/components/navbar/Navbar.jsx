@@ -1,24 +1,38 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Navbar, Nav,Container } from "react-bootstrap";
+import { LinkContainer } from 'react-router-bootstrap'
 
-function Navbar() {
+function MyNavbar() {
+    /**
+     * @see https://stackoverflow.com/questions/59084960/react-bootstrap-nav-link-routing
+     * @see https://github.com/react-bootstrap/react-router-bootstrap
+     */
     return (
         <div>
-            <nav>
-                <ul>
-                    <li><Link to={`register`}>register</Link></li>
-                </ul>
-                <ul>
-                    <li><Link to={`login`}>login</Link></li>
-                </ul>
-                <ul>
-                    <li><Link to={`addPost`}>Add a post</Link></li>
-                </ul>
-                <ul>
-                    <li><Link to={`ListUsers`}>Users</Link></li>
-                </ul>
-            </nav>
+            <Navbar >
+                <Container>
+                    <Nav>
+                    <LinkContainer to={`login`}>
+                        <Nav.Link>Login</Nav.Link>
+                    </LinkContainer>
+
+                    <LinkContainer to={`register`}>
+                        <Nav.Link>Register</Nav.Link>
+                    </LinkContainer>
+
+                    <LinkContainer to={`addPost`}>
+                        <Nav.Link>New post</Nav.Link>
+                    </LinkContainer>
+
+                    <LinkContainer to={`ListUsers`}>
+                        <Nav.Link>Users</Nav.Link>
+                    </LinkContainer>
+
+                    </Nav>
+                </Container>
+            </Navbar >
             <div><Outlet /></div>
         </div>
     )
 }
-export default Navbar
+export default MyNavbar
