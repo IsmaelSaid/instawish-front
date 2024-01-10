@@ -31,7 +31,10 @@ function MyNavbar() {
                     <LinkContainer to={`MyPosts`}>
                         <Nav.Link>My posts</Nav.Link>
                     </LinkContainer>
-
+                    
+                    <LinkContainer to={`Home`}>
+                        <Nav.Link>Home</Nav.Link>
+                    </LinkContainer>
                     </Nav>
                 </Container>
             </Navbar >

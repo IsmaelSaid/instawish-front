@@ -9,6 +9,7 @@ import AddPost from './components/post/AddPost';
 import 'bootstrap/dist/css/bootstrap.css'
 import ListUsers from './components/user/ListUsers';
 import MyPosts from './components/post/MyPosts';
+import Home from './components/home/Home';
 
 
 import {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path : "MyPosts",
         element : <MyPosts/>
+      },
+      {
+        path : "Home",
+        element : <Home/>
       }
     ]
   },
