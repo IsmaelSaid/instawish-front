@@ -57,9 +57,45 @@ function Login() {
             }
             return response.text()
         }).then((token) => {
+
             // Récupérons la valeur du token uniquement et stockons la.
             let tokenObject = JSON.parse(token)
             localStorage.setItem("token", tokenObject.token)
+
+            // Récupérons l'user id aussi
+            console.log("connexion réussit");
+            var myHeaders = new Headers();
+            myHeaders.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+            var requestOptions = {
+              method: 'GET',
+              headers: myHeaders
+          };
+
+          fetch("https://symfony-instawish.formaterz.fr/api/me",requestOptions).then((response)=>{
+            /**
+             * Traiter les erreurs...
+             */
+            if (!response.ok){
+              throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json()
+
+          }).then((value)=>{
+            /**
+             * Stockez les informations de l'utilisateur
+             */
+            const {imageUrl, id, email, username} = value
+            localStorage.setItem("imageUrl", imageUrl)
+            localStorage.setItem("id", id)
+            localStorage.setItem("email", email)
+            localStorage.setItem("username", username)
+
+          }).catch((reason)=>{
+            /**
+             * Traitez l'erreur. 
+             */
+          })
 
         }).catch((reason) => {
             setLoginErr(true)
