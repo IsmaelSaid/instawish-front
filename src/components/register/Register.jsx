@@ -1,4 +1,8 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 /**
  * Composant de formulaire d'inscription.
@@ -61,29 +65,35 @@ function Register() {
     }
 
     return (
-        <form onSubmit={handleForm} method="post">
-            <div>
-                <label htmlFor="inputText">Nom d'utilisateur:</label>
-                <input type="text" name="inputText" id="inputText" onChange={(e) => { setUsername(e.target.value) }} />
-            </div>
+        <Container style={{ width: 'fit-content' }} className="border rounded p-3">
 
-            <div>
-                <label htmlFor="inputEmail">Email:</label>
-                <input type="email" name="inputEmail" id="inputEmail" onChange={(e) => { setEmail(e.target.value) }} />
-            </div>
+            <form onSubmit={handleForm} method="post">
+                <Row className="mt-4">
+                    <div>
+                        <Form.Control type="text" name="inputText" placeholder="Nom utilisateur" onChange={(e) => setUsername(e.target.value)} style={{ fontSize: '0.8rem' }} />
+                    </div>
+                </Row>
+                <Row className="mt-4">
+                    <div>
+                        <Form.Control type="email" name="inputPassword" placeholder="exemple@mail.com" onChange={(e) => setEmail(e.target.value)} style={{ fontSize: '0.8rem' }} />
+                    </div>
+                </Row>
+                <Row className="mt-4">
+                    <div>
+                        <Form.Control type="password" name="inputPassword" placeholder="Mot de passe" onChange={(e) => setPassword(e.target.value)} style={{ fontSize: '0.8rem' }} />
+                    </div>
+                </Row>
 
-            <div>
-                <label htmlFor="inputPassword">Mot de passe:</label>
-                <input type="password" name="inputPassword" id="inputPassword" onChange={(e) => { setPassword(e.target.value) }} />
-            </div>
+                <div className="mt-4">
+                    {/* <label htmlFor="inputFile">Photo de profil</label> */}
+                    <Form.Control type="file" name="inputFile" id="inputFile" onChange={(e) => { setFile(e.target.files[0]) }} />
+                </div>
 
-            <div>
-                <label htmlFor="inputFile">Photo de profil</label>
-                <input type="file" name="inputFile" id="inputFile" onChange={(e) => { setFile(e.target.files[0]) }} />
-            </div>
-
-            <button type="submit">Envoyer</button>
-        </form>
+                <div className="text-center mt-4">
+                    <Button variant="primary" type="submit">Créer un compte</Button>
+                </div>
+            </form>
+        </Container>
     )
 }
 
