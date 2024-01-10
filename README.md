@@ -9,8 +9,9 @@
 | Add a post  | ok
 | Display my posts  | ok
 | Delete post  | ok
-| Display users  | ok (pas d'ihm)
-| Follow users  | x
+| Display users  | ok
+| Follow users  | ok
+| Unfollow users  | ?
 | View the publications of users I follow   | x
 | Like a post   | x
 | Comment a post   | x
@@ -26,3 +27,6 @@
 
 ## My posts
 ![myposts](public/my-posts.png)
+
+## Display users
+![displayUsers](public/display-users.png)
