@@ -28,6 +28,10 @@ function MyNavbar() {
                         <Nav.Link>Users</Nav.Link>
                     </LinkContainer>
 
+                    <LinkContainer to={`MyPosts`}>
+                        <Nav.Link>My posts</Nav.Link>
+                    </LinkContainer>
+
                     </Nav>
                 </Container>
             </Navbar >

@@ -7,12 +7,14 @@ import Register from './components/register/Register';
 import Login from './components/login/Login';
 import AddPost from './components/post/AddPost';
 import 'bootstrap/dist/css/bootstrap.css'
+import ListUsers from './components/user/ListUsers';
+import MyPosts from './components/post/MyPosts';
+
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ListUsers from './components/user/ListUsers';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
       {
         path : "ListUsers",
         element : <ListUsers/>
+      },
+      {
+        path : "MyPosts",
+        element : <MyPosts/>
       }
     ]
   },
