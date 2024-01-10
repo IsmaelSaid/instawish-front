@@ -6,6 +6,8 @@ import ErrorPage from './components/error/Error';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
 import AddPost from './components/post/AddPost';
+import 'bootstrap/dist/css/bootstrap.css'
+
 import {
   createBrowserRouter,
   RouterProvider,

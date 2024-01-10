@@ -1,4 +1,9 @@
 import { useState } from "react"
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+
 
 function Login() {
     /**
@@ -61,23 +66,40 @@ function Login() {
         })
 
     }
+    /**
+     * @see https://react-bootstrap.netlify.app/docs/layout/grid
+     */
     return (
-        <form onSubmit={handleForm} method="post">
-            <div>
-                <label htmlFor="inputText">Nom d'utilisateur:</label>
-                <input type="text" name="inputText" onChange={(e) => { setUsername(e.target.value) }} />
+        <Container  style={{ width: 'fit-content' }}>
+          <form onSubmit={handleForm} method="post" className="border rounded p-3" >
+            <Row className="justify-content-md-center">
+              <h1 className="text-center">Instawish</h1>
+            </Row>
+      
+            <Row className="mt-4">
+              <div>
+                <Form.Control type="text" name="inputText" placeholder="Nom utilisateur" onChange={(e) => setUsername(e.target.value)} style={{ fontSize: '0.8rem' }} />
+              </div>
+            </Row>
+      
+            <Row className="mt-4">
+              <div>
+                <Form.Control type="password" name="inputPassword" placeholder="Mot de passe" onChange={(e) => setPassword(e.target.value)} style={{ fontSize: '0.8rem' }} />
+              </div>
+            </Row>
+      
+            {loginErr && <p>Une erreur est survenue</p>}
+      
+            <div className="text-center mt-4">
+              <Button variant="primary" type="submit">Se connecter</Button>
             </div>
-
-            <div>
-                <label htmlFor="inputPassword">Mot de passe:</label>
-                <input type="password" name="inputPassword" onChange={(e) => setPassword(e.target.value)} />
-            </div>
-
-            {loginErr ? <p>Une erreur est survenu</p> : null}
-
-            <button type="submit">Envoyer</button>
-        </form>
-    )
+          </form>
+        </Container>
+      );
+      
+      
+      
+      
 }
 
 export default Login
